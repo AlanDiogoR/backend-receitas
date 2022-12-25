@@ -1,18 +1,19 @@
 import { Request, Response } from 'express';
+import { Revenues } from '../../models/Revenue';
 
-import { Revenues } from '../../model/Revenue';
-
-export async function createRevenues(req: Request, res: Response)  {
+export async function createRevenues(req: Request, res: Response) {
   try {
+    const { name, waydOfDoing, category, user, ingredients} = req.body;
     const imagePath = req.file?.filename;
-    const {name, ingredients, waydOfDoing } = req.body;
 
-    const revenue = await Revenues.create(
+    const revenue = await Revenues.create({
       name,
-      imagePath,
-      ingredients: JSON.parse(ingredients),
       waydOfDoing,
-    );
+      imagePath,
+      category,
+      user,
+      ingredients: ingredients ? JSON.parse(ingredients) : [],
+    });
 
     res.status(201).json(revenue);
   } catch (error) {
