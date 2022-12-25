@@ -13,7 +13,7 @@ export const Revenues = model('Revenue', new Schema({
     required: true,
     type: [{
       quantity: {
-        type: Number,
+        type: String,
         required: true,
       },
       ingredient: {

@@ -1,10 +1,10 @@
 import { model, Schema } from 'mongoose';
 
-export const Revenues = model('Revenue', new Schema({
-  category: {
+export const Like = model('Like', new Schema({
+  revenue: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Category',
+    ref: 'Revenue',
   },
   user: {
     type: Schema.Types.ObjectId,
