@@ -7,7 +7,6 @@ export const Revenues = model('Revenue', new Schema({
   },
   ImagePath: {
     type: String,
-    required: true,
   },
   ingredients: {
     required: true,

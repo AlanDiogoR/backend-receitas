@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Revenues } from '../../models/Revenue';
 
 
-export async function cancelOrder(req: Request, res: Response) {
+export async function deleteRevenues(req: Request, res: Response) {
   try {
     const { revenueId } = req.params;
 

@@ -10,6 +10,9 @@ import { deleteUsers } from './app/useCases/Users/deleteUsers';
 import { createCategories } from './app/useCases/Categories/createCategories';
 import { listCategories } from './app/useCases/Categories/listCategories';
 import { deleteCategories } from './app/useCases/Categories/deleteCategories';
+import { listRevenuesByCategory } from './app/useCases/Categories/listRevenuesByCategory';
+import { deleteRevenues } from './app/useCases/Revenues/deleteRevenues';
+import { listLikes } from './app/useCases/Likes/listLikes';
 
 
 
@@ -30,9 +33,7 @@ const upload = multer({
 router.get('/revenues', listRevenues);
 
 // list likes
-router.get('/likes', (req, res) =>  {
-  res.send('Ok');
-});
+router.get('/likes', listLikes);
 
 //list users
 router.get('/users', listUsers);
@@ -41,9 +42,7 @@ router.get('/users', listUsers);
 router.get('/categories', listCategories);
 
 //get revenue by category
-router.get('/categories/:categoryId/revenues', (req, res) =>  {
-  res.send('Ok');
-});
+router.get('/categories/:categoryId/revenues', listRevenuesByCategory);
 
 
 // create revenues
@@ -73,9 +72,7 @@ router.patch('/categories/:categoriesId', (req, res) =>  {
 
 
 //delete revenues
-router.delete('/revenues/:revenueId', (req, res) =>  {
-  res.send('Ok');
-});
+router.delete('/revenues/:revenueId', deleteRevenues);
 
 // delete user
 router.delete('/users/:userId', deleteUsers );
